@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../includes/header.ejs %>
+</head>
+<body>
+    <% include ../includes/nav.ejs %>
+    <div class="jumbotron text-center">
+        <div class="container">
+          <h1><%= title %></h1>
+          <p>
+            <% if (books.length > 0) { %>
+                <% for (i = 0; i < books.length; i++) { %>
+                  <h2> <%= books[i] %> </h2><br>
+                  <li> <%= sums[i] %> </li><br>
+                  <br>
+                <% } %>
+              <% } else { %>
+                <h2>No Books Found</h2>
+              <% } %>
+          </p>
+        </div>
+    </div>
+    <div class="container">
+    
+</body>
+</html>
