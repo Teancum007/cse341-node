@@ -12,5 +12,10 @@
     {
         "name": "Saturn, the Windy Planet",
         "price": 3550.00
+    },
+
+    {
+        "name": "Neptune, the Blue Planet",
+        "price": 2140.00
     }
 ]
