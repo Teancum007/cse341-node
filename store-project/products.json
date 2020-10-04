@@ -1,0 +1,16 @@
+[
+    {
+        "name": "Mars, the Red Planet",
+        "price": 1200.00
+    },
+
+    {
+        "name": "Ceres, the Boundary Planet",
+        "price": 780.00
+    },
+
+    {
+        "name": "Saturn, the Windy Planet",
+        "price": 3550.00
+    }
+]
