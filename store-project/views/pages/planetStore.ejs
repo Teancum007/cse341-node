@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+</head>
+<body>
+    <div>
+        <p>  
+            <ul>
+            <% for (i = 0; i < itemsData.length; i++) { %>
+            <li><h3><%= itemsData[i].name %></h3>
+                <h6><%= itemsData[i].price %></h6>
+            </li>
+            <% } %>
+            </ul>
+        </p>
+    </div>
+    
+</body>
+</html>
