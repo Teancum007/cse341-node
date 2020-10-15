@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: <%= newColor %>
+        }
+    </style>
+</head>
+<body>
+    
+    <p>Counter: <%= count %></p><br>
+
+    <div class="container">
+        <form action="/ta05/change-style" method="POST">
+            Color rgb #:<input type="text" name="newColor">
+            <button type="submit">Submit</button><br>
+        </form>
+    </div>
+    <div>
+        <form action="/ta05/counter" method="POST">
+            <input type="hidden" name="plus" value="plus">
+            <button type="submit">Increment</button><br>
+        </form>
+        <form action="/ta05/counter" method="POST">
+            <input type="hidden" name="minus" value="minus">
+            <button type="submit">Decrement</button><br>
+        </form>
+    </div>
+    <div>
+        <form action="/ta05/reset" method="POST">
+            <button type="submit">Destroy!</button><br>
+        </form>
+    </div>
+
+</body>
+</html>

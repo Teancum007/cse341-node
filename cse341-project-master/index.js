@@ -13,6 +13,7 @@
 // Our initial setup (package requires, port number setup)
 const express = require('express');
 const bodyParser = require('body-parser');
+const session = require('express-session');
 const path = require('path');
 const PORT = process.env.PORT || 5000 // So we can run on heroku || (OR) localhost:5000
 
@@ -23,6 +24,7 @@ const ta01Routes = require('./routes/ta01');
 const ta02Routes = require('./routes/ta02');
 const ta03Routes = require('./routes/ta03'); 
 const ta04Routes = require('./routes/ta04');
+const ta05Routes = require('./routes/ta05');
 const p01Routes = require('./routes/prove01');
 const p02Routes = require('./routes/prove02'); 
 const shopRoutes = require('./routes/shop');
@@ -36,10 +38,12 @@ app.use(express.static(path.join(__dirname, 'public')))
    //.engine('hbs', expressHbs({layoutsDir: 'views/layouts/', defaultLayout: 'main-layout', extname: 'hbs'})) // For handlebars
    //.set('view engine', 'hbs')
    .use(bodyParser({extended: false})) // For parsing the body of a POST
+   .use(session({secret: 'e!ufh>sdkj+fhalsjkd$dfnav&eebr%'}))
    .use('/ta01', ta01Routes)
    .use('/ta02', ta02Routes) 
    .use('/ta03', ta03Routes) 
    .use('/ta04', ta04Routes)
+   .use('/ta05', ta05Routes)
    .use('/prove01', p01Routes)
    .use('/prove02', p02Routes)
    .use('/shop', shopRoutes)
