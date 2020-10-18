@@ -4,18 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
+    <link rel="stylesheet" href="/css/product.css">
 </head>
 <body>
     <div>
-        <p>  
-            <ul>
-            <% for (i = 0; i < itemsData.length; i++) { %>
-            <li><h3><%= itemsData[i].name %></h3>
-                <h6><%= itemsData[i].price %></h6>
-            </li>
-            <% } %>
-            </ul>
-        </p>
+        <% if (prods.length > 0) { %>
+            <div class="grid">
+                <% for (let product of prods) { %>
+                    <article class="card product-item">
+                        <header class="card__header">
+                            <h1 class="product__title"><%= product.title %></h1>
+                        </header>
+                    
+                        </div>
+                        <div class="card__content">
+                            <h2 class="product__price">$<%= product.price %></h2>
+                            
+                        </div>
+                        <div class="card__actions">
+                                <a href="/products/<%= product._id %>" class="btn">Details</a>
+                            <%- include('../includes/add-to-cart.ejs', {product: product}) %>
+                        </div>
+                    </article>
+                <% } %>
+            </div>
+        <% } else { %>
+            <h1>No Products Found!</h1>
+        <% } %>
     </div>
     
 </body>
