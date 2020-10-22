@@ -25,11 +25,11 @@ router.get('/cart', isAuth, mainControl.getCart);
 
 router.post('/cart', isAuth, mainControl.postCart);
 
-router.post('/cart-delete-item', isAuth, shopController.postCartDeleteProduct);
+router.post('/cart-delete-item', isAuth, mainControl.postCartDeleteProduct);
 
-router.post('/create-order', isAuth, shopController.postOrder);
+router.post('/create-order', isAuth, mainControl.postOrder);
 
-router.get('/orders', isAuth, shopController.getOrders);
+router.get('/orders', isAuth, mainControl.getOrders);
 
 router.get('/login', authController.getLogin);
 
