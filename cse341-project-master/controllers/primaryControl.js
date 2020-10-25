@@ -1,5 +1,6 @@
 const mongodb = require('mongodb');
 const Products = require('../models/products');
+const { validationResult } = require('express-validator/check');
 
 const ObjectId = mongodb.ObjectID;
 
@@ -62,7 +63,7 @@ exports.getEditProduct = (req, res, next) => {
         }
         res.render('', {
             pageTitle: 'Edit Product',
-            //path '/',
+            path: '/',
             editing: editMode,
             product: product
         });
@@ -73,6 +74,16 @@ exports.postEditProduct = (req, res, next) => {
     const prodId = req.body.productId;
     const uTitle = req.body.title;
     const uPrice = req.body.price;
+
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(422).render('pages/planetStore', {
+        path: '/planetStore',
+        pageTitle: 'Buy a Planet!',
+        isAuthenticated: false,
+        errorMessage: errors.array() [0].msg
+      });
+    }
     
     const product = new Products(
         uTitle,
