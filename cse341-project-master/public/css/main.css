@@ -41,3 +41,7 @@
   width: 5rem;
   height: 5rem;
 }
+
+.pagination {
+  text-align: center;
+}

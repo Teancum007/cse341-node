@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include ../includes/header.ejs %>
+</head>
+
+<body>
+  <% include ../includes/nav.ejs %>
+<div class="jumbotron text-center">
+  <div class="container">
+    <h1><%= title %></h1>
+    <p>  
+      <ul>
+        <% numItems = 0 %>
+      <% for (i = 0; i < itemsData.length; i++) { %>
+      <li><h3><%= itemsData[i].name %></h3>
+        <img src="<%= itemsData[i].imageUrl %>">
+        <h6><%= itemsData[i].price %></h6>
+        <p><%= itemsData[i].description %></p>
+        <% numItems++ %>
+        <p>
+          Tags: <% for (j = 0; j < itemsData[i].tags.length; j++) { %>
+            <%= itemsData[i].tags[j] %>
+            <% } %>
+        </p>
+      </li>
+      <% } %>
+      </ul>
+    </p>
+    <% lastPage = (numItems / iPer) + 1 %>
+    <% if (iPer * currentPage < numItems) {hasNextPage = true} %>
+    <% else {hasNextPage = false} %>
+    <section class="pagination">
+        <% if (currentPage != 1 && prevPage != 1) { %> 
+            <a href="/?page=1">1</a>
+        <% } %>
+        <% if (hasPrevPage) { %>
+            <a href="/?page=<%= prevPage %>"><%= prevPage %></a>
+        <% } %>
+        <a href="/?page=<%= currentPage %>"><%= currentPage %></a>
+        <% if (hasNextPage) { %>
+            <a href="/?page=<%= nextPage %>"><%= nextPage %></a>
+        <% } %>
+        <% if (lastPage != currentPage && nextPage != lastPage) { %>
+            <a href="/?page=<%= lastPage %>"><%= lastPage %></a>
+        <% } %>
+    </section>
+  </div>
+</div>
+<div class="container">
+  
+</div>
+
+
+</body>
+</html>
